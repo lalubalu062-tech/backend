@@ -1,7 +1,9 @@
 FROM 9hitste/appv6:latest
 
-ENV HOME=/tmp
-WORKDIR /tmp
+RUN ARCHIVE=$(find / -name "9hitsv6-linux64.tar.bz2" 2>/dev/null | head -n 1) && \
+    tar -xjf "$ARCHIVE" -C /etc/ && \
+    chmod -R 777 /etc/9hitsv6-linux64
 
-RUN sed -i 's|/etc/9hits|/tmp/9hits|g; s|=/etc|=/tmp|g; s| /etc| /tmp|g; s|/tmp/9hitsv6-linux64.tar.bz2|/etc/9hitsv6-linux64.tar.bz2|g' /nh.sh
-ENTRYPOINT []
+ENV HOME=/tmp
+ENV XDG_CONFIG_HOME=/tmp
+ENV XDG_CACHE_HOME=/tmp
