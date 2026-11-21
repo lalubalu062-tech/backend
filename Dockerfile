@@ -1,7 +1,7 @@
 FROM 9hitste/appv6:latest
 
-ENV HOME=/data
-WORKDIR /data
+ENV HOME=/tmp
+WORKDIR /tmp
 
-RUN sed -i 's|/etc/9hits|/data/9hits|g; s|cd /etc|cd /data|g; s|-C /etc|-C /data|g' /nh.sh
+RUN sed -i 's|/etc/9hits|/tmp/9hits|g; s|=/etc|=/tmp|g; s| /etc| /tmp|g' /nh.sh
 ENTRYPOINT []
