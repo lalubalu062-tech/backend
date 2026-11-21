@@ -3,5 +3,5 @@ FROM 9hitste/appv6:latest
 ENV HOME=/tmp
 WORKDIR /tmp
 
-RUN sed -i 's|/etc/9hits|/tmp/9hits|g; s|=/etc|=/tmp|g; s| /etc| /tmp|g' /nh.sh
+RUN sed -i 's|/etc/9hits|/tmp/9hits|g; s|=/etc|=/tmp|g; s| /etc| /tmp|g; s|/tmp/9hitsv6-linux64.tar.bz2|/etc/9hitsv6-linux64.tar.bz2|g' /nh.sh
 ENTRYPOINT []
